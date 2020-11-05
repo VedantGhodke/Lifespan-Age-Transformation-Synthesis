@@ -1,14 +1,6 @@
 # Lifespan Age Transformation Synthesis
-### [Project Page](https://grail.cs.washington.edu/projects/lifespan_age_transformation_synthesis/) | [Paper](https://arxiv.org/pdf/2003.09764.pdf) | [Data](https://github.com/royorel/FFHQ-Aging-Dataset)
 
-[![Explore in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/royorel/Lifespan_Age_Transformation_Synthesis/blob/master/LATS_demo.ipynb)<br>
-
-[Roy Or-El](https://homes.cs.washington.edu/~royorel/)<sup>1</sup> ,
-[Soumyadip Sengupta](https://homes.cs.washington.edu/~soumya91/)<sup>1</sup>,
-[Ohad Fried](https://www.ohadf.com/)<sup>2</sup>,
-[Eli Shechtman](https://research.adobe.com/person/eli-shechtman/)<sup>3</sup>,
-[Ira Kemelmacher-Shlizerman](https://homes.cs.washington.edu/~kemelmi/)<sup>1</sup><br>
-<sup>1</sup>University of Washington, <sup>2</sup>Stanford University, <sup>3</sup>Adobe Research
+[Vedant Ghodke](http://vedantghodke.github.io/)<sup>1</sup> ,
 
 <div align="center">
 <img src=./gifs/001_input.gif width="150">
@@ -23,24 +15,19 @@
 <img src=./gifs/69859.gif width="150">
 </div>
 
-## Updates
- - August 19th, 2020: Added alternate download urls for pretrained models to bypass Google Drive "quota exceeded" error.
 
 ## Overview
 Lifespan Age Transformation Synthesis is a GAN based method designed to simulate the continuous aging process from a single input image.<br>
 This code is the official PyTorch implementation of the paper:
-> **Lifespan Age Transformation Synthesis**<br>
-> Roy Or-El, Soumyadip Sengupta, Ohad Fried, Eli Shechtman, Ira Kemelmacher-Shlizerman<br>
-> ECCV 2020<br>
-> https://arxiv.org/pdf/2003.09764.pdf
 
-## Ethics & Bias statement
-### Intended use:
+
+## Ethics And Bias Statement
+### Intended Use:
  - This algorithm is designed to hallucinate the aging process and produce an **approximation** of a person's appearance throughout his/her/their lifespan.
  - The main use cases of this method are for art and entertainment purposes (CGI effects, Camera filters, etc.). This method might also be useful for more critical applications, e.g. approximating the appearance of missing people. However, we would like to stress that as a non perfect data-driven method, results might be inaccurate and biased. The output of our method should be critically analyzed by a trained professional, and not be treated as an absolute ground truth.
- - **_The results of this method should not be used as grounds for detention/arrest of a person or as any other form of legal evidence under any circumstances._**
+ - **_Please note : The results of this method should not be used as grounds for detention/arrest of a person or as any other form of legal evidence under any circumstances._**
 
-### Algorithm & data bias:<br>
+### Algorithm And Data Bias:<br>
 We have devoted considerable efforts in our algorithm design to preserve the identity of the person in the input image, and to minimize the influence of the inherent dataset biases on the results. These measures include:
 1. Designing the identity encoder architecture to preserve the local structures of the input image.
 2. Including training losses that were designed to maintain the person's identity.
@@ -51,7 +38,7 @@ We have devoted considerable efforts in our algorithm design to preserve the ide
 
 Despite these measures, the network might still introduce other biases that we did not consider when designing the algorithm. If you spot any bias in the results, please reach out to help future research!
 
-## Pre-Requisits
+## Pre-Requisites
 You must have a **GPU with CUDA support** in order to run the code.
 
 This code requires **PyTorch** and **torchvision** to be installed, please go to [PyTorch.org](https://pytorch.org/) for installation info.<br>
@@ -75,7 +62,7 @@ If any of these packages are not installed on your computer, you can install the
 ## Quick Demo
 You can try running the method on your own images!!!<br>
 
-You can either run the demo localy or explore it in Colab [![Explore in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/royorel/Lifespan_Age_Transformation_Synthesis/blob/master/LATS_demo.ipynb)<br>
+You can either run the demo localy or explore it in Colab [![Explore in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1furMPs2rtPIBxXWKKHfpSYcNLvTi8df8#scrollTo=J2uubo7PsvxQ)<br>
 
 Running locally:
 1. Download the pre-trained models. ```python download_models.py```
@@ -91,7 +78,7 @@ Please refer to [Using your own images](#using-your-own-images) for guidelines o
 
 If you get a CUDA out of memory error, slightly increase the ```--interp_step``` parameter until it fits your GPU. This parameter controls the number of interpolated frames between every 2 anchor classes. Increasing it will reduce the length of the output video.
 
-## Using your own images
+## Using Your Own Images
 For best results, use images according to the following guidelines:
 1. The image should contain a single face.
 2. Image was taken from a digital camera (phone cameras are fine). Old images from film cameras would produce low quality results.
@@ -102,15 +89,15 @@ For best results, use images according to the following guidelines:
 
 
 ## Training/Testing on FFHQ-Aging
-1. Download the FFHQ-Aging dataset. Go to the [FFHQ-Aging dataset repo](https://github.com/royorel/FFHQ-Aging-Dataset) and follow the instructions to download the data.
+1. Download the FFHQ-Aging dataset. Go to the [FFHQ Ageing Dataset Repository](https://github.com/VEDANTGHODKE/FFHQ-Ageing-Dataset) and follow the instructions to download the data.
 
-2. Prune & organize the raw FFHQ-Aging dataset into age classes:
+2. Prune and organize the raw FFHQ ageing dataset into age classes:
 ```
 cd datasets
 python create_dataset.py --folder <path to raw FFHQ-Aging directory> --labels_file <path to raw FFHQ-Aging labels csv file> [--train_split] [num of training images (default=69000)]
 ```
 
-3. Download pretrained models (Optional)<br>
+3. Download pretrained models (optional)<br>
 ```python download_models.py```
 
 ### Training
@@ -152,20 +139,6 @@ This will generate an image of progressions to all anchor classes
 3. Run ```./run_scripts/deploy.sh``` (Linux) or ```./run_scripts/deploy.bat``` (windows)
 4. The output images will be saved to ```results/<model name>/test_<model_checkpoint>/deploy/```
 
-## Citation
-If you use this code for your research, please cite our paper.
-```
-@inproceedings{orel2020lifespan,
-  title={Lifespan Age Transformation Synthesis},
-  author={Or-El, Roy
-          and Sengupta, Soumyadip
-          and Fried, Ohad
-          and Shechtman, Eli
-          and Kemelmacher-Shlizerman, Ira},
-  booktitle={Proceedings of the European Conference on Computer Vision (ECCV)},
-  year={2020}
-}
-```
 
 ## Acknowledgments
 This code is inspired by [pix2pix-HD](https://github.com/NVIDIA/pix2pixHD) and [style-based-gan-pytorch](https://github.com/rosinality/style-based-gan-pytorch).
