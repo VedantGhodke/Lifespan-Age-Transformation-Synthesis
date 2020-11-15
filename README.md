@@ -60,9 +60,7 @@ If any of these packages are not installed on your computer, you can install the
 ```pip install -r requirements.txt```
 
 ## Quick Demo
-You can try running the method on your own images!!!<br>
-
-You can either run the demo localy or explore it in Colab [![Explore in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1furMPs2rtPIBxXWKKHfpSYcNLvTi8df8#scrollTo=J2uubo7PsvxQ)<br>
+You can try running the method on your own images.<br>
 
 Running locally:
 1. Download the pre-trained models. ```python download_models.py```
