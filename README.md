@@ -1,7 +1,5 @@
 # Lifespan Age Transformation Synthesis
 
-[Vedant Ghodke](http://vedantghodke.github.io/)<sup>1</sup> ,
-
 <div align="center">
 <img src=./gifs/001_input.gif width="150">
 <img src=./gifs/69005.gif width="150">
