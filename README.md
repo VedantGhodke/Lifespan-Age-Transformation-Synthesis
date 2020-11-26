@@ -137,6 +137,19 @@ This will generate an image of progressions to all anchor classes
 3. Run ```./run_scripts/deploy.sh``` (Linux) or ```./run_scripts/deploy.bat``` (windows)
 4. The output images will be saved to ```results/<model name>/test_<model_checkpoint>/deploy/```
 
-
 ## Acknowledgments
 This code is inspired by [pix2pix-HD](https://github.com/NVIDIA/pix2pixHD) and [style-based-gan-pytorch](https://github.com/rosinality/style-based-gan-pytorch).
+
+## Citation:
+@inproceedings{orel2020lifespan,
+  title={Lifespan Age Transformation Synthesis},
+  author={Or-El, Roy
+          and Sengupta, Soumyadip
+          and Fried, Ohad
+          and Shechtman, Eli
+          and Kemelmacher-Shlizerman, Ira},
+  booktitle={Proceedings of the European Conference on Computer Vision (ECCV)},
+  year={2020}
+}
+```
+
